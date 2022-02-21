@@ -1,6 +1,16 @@
 const passwordHash = require('password-hash');
 const UserModel = require('../schema/user');
 
+const getUserById = async (userId) => {
+  const userData = await UserModel.findById(userId);
+  return userData;
+};
+
+const getUsers = async () => {
+  const usersList = await UserModel.find();
+  return usersList;
+}
+
 const registerUser = async (payload) => {
   const { username, email, password } = payload;
   const error = {
@@ -55,4 +65,6 @@ const loginUser = async (payload) => {
 module.exports = {
   registerUser,
   loginUser,
+  getUserById,
+  getUsers
 };

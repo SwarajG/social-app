@@ -3,11 +3,11 @@ const userController = require('../controller/user');
 const resolvers = {
   Query: {
     users: async () => {
-      const users = await userController.findAll();
+      const users = await userController.getUsers();
       return users;
     },
-    user: async ({ userId }) => {
-      const user = await userController.findById(userId);
+    user: async (_, { userId }) => {
+      const user = await userController.getUserById(userId);
       return user;
     },
   },

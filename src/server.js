@@ -25,8 +25,6 @@ async function startApolloServer() {
 
   new RedisClient(redisClient);
 
-  console.log('1');
-
   const server = new ApolloServer({
     schema,
     context: async ({ req }) => {
