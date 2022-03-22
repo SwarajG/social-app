@@ -13,8 +13,11 @@
     "express": "4.17.2",
     "graphql": "16.3.0",
     "isemail": "3.2.0",
+    "jsonwebtoken": "^8.5.1",
     "mongoose": "6.2.1",
     "morgan": "1.10.0",
+    "passport": "^0.5.2",
+    "passport-google-token": "^0.1.2",
     "password-hash": "1.2.2",
     "redis": "^4.0.3"
   },

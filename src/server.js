@@ -27,15 +27,15 @@ async function startApolloServer() {
 
   const server = new ApolloServer({
     schema,
-    context: async ({ req }) => {
-      // const auth = (req.headers && req.headers.authorization) || '';
-      // const email = Buffer.from(auth, 'base64').toString('ascii');
-      // if (!isEmail.validate(email)) return { user: null };
-      // // find a user by their email
-      // const users = await store.users.findOrCreate({ where: { email } });
-      // const user = (users && users[0]) || null;
-      // return { user: { ...user.dataValues } };
-    },
+    context: ({ req, res }) => ({ req, res }),
+    // const auth = (req.headers && req.headers.authorization) || '';
+    // const email = Buffer.from(auth, 'base64').toString('ascii');
+    // if (!isEmail.validate(email)) return { user: null };
+    // // find a user by their email
+    // const users = await store.users.findOrCreate({ where: { email } });
+    // const user = (users && users[0]) || null;
+    // return { user: { ...user.dataValues } };
+    // },
     plugins: [ApolloServerPluginDrainHttpServer({ httpServer })],
   });
 

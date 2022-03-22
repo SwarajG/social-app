@@ -2,15 +2,19 @@ const { gql } = require('apollo-server');
 
 const typeDefs = gql`
   type User {
-    id: ID!
-    username: String!
-    email: String
+    id: ID
+    username: String
+    email: String!
     isAdmin: Boolean
   }
 
   type Query {
     users: [User]
     user(id: ID!): User
+  }
+
+  input AuthInput {
+    accessToken: String!
   }
 
   type Mutation {
@@ -22,6 +26,7 @@ const typeDefs = gql`
       isAdmin: Boolean
     ): User
     login(email: String, password: String): User
+    authGoogle(input: AuthInput!): User
   }
 `;
 
